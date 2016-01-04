@@ -1,0 +1,360 @@
+/*
+ Theme Name:   UoY Twenty Fifteen
+ Theme URI:    https://www.york.ac.uk
+ Description:  University of York-branded version of Twenty Fifteen
+ Author:       Chris Marsh
+ Author URI:   https://www-users.york.ac.uk/~cm1438/
+ Template:     twentyfifteen
+ Version:      1.0.1
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-fifteen-uoy
+*/
+/* === Sitewide changes === */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.post-navigation .meta-nav {
+  text-transform:none;
+  text-transform:capitalize;
+}
+p,address, pre, hr, ul, ol, dl, dd, table {
+  margin-bottom: 1em;
+}
+.entry-content a,
+.entry-summary a,
+.page-content a,
+.comment-content a,
+.pingback .comment-body > a,
+.author-description a {
+  color:#00b3eb;
+  text-decoration:underline;
+  border-bottom:0;
+}
+.widget_archive li,
+.widget_categories li,
+.widget_links li,
+.widget_meta li,
+.widget_nav_menu li,
+.widget_pages li,
+.widget_recent_comments li,
+.widget_recent_entries li {
+  border-top: 0;
+  padding:0.5em 0;
+}
+.posted-on:before,
+.author-link:after {
+  content: "";
+  display:none;
+}
+.entry-title, .widecolumn h2 {
+  margin-bottom:0.6em;
+}
+.post .entry-footer {
+  background-color:#00b3eb;
+  color:#fff;
+}
+.post .entry-footer a {
+  color:#fff;
+  font-weight:bold;
+}
+.post .entry-footer a:hover {
+  color:#fefefe;
+  color:rgba(255,255,255,0.9);
+}
+/* === REDUCING VERT PADDING/MARGIN === */
+.site-header {
+  padding-top:5%;
+  padding-bottom:5%;
+}
+.widget {
+  margin-bottom: 10%;
+}
+.hentry {
+  padding-top:5%;
+}
+.hentry + .hentry, .page-header + .hentry, .page-header + .page-content {
+  margin-top:5%;
+}
+.widget-title {
+  margin-bottom: 1em;
+}
+.entry-content, .entry-summary {
+  padding-bottom:5%;
+}
+.author-info {
+  padding: 5% 0;
+}
+.comments-area {
+  margin-top: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.post-navigation {
+  margin-top: 5%;
+}
+/* === Fonts === */
+/* Kept in same order as they are in 2015/style.css to keep specificity */
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+blockquote cite,
+blockquote small {
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+}
+code,
+kbd,
+tt,
+var,
+samp,
+pre {
+  font-family: Inconsolata, monospace;
+}
+::-webkit-input-placeholder, {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+
+:-moz-placeholder {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+
+::-moz-placeholder {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+
+:-ms-input-placeholder {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.post-password-form label,
+.main-navigation .menu-item-description,
+.post-navigation .meta-nav {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+.post-navigation .post-title {
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+}
+.pagination,
+.image-navigation,
+.comment-navigation {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+/* must have higher specificity than alternative color schemes inline styles */
+.site .skip-link {
+  font: bold 14px/normal "museo-sans", Helvetica, Arial, sans-serif;
+}
+.entry-title,
+.entry-subtitle,
+.site-title,
+.widget-title {
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+}
+.site-description {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+
+.widget_calendar caption {
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+}
+.widget_rss .rss-date,
+.widget_rss cite,
+.author-heading,
+.entry-footer {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+.page-title {
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+}
+.page-links,
+.entry-caption {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+.comments-title,
+.comment-reply-title {
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+}
+.comment-metadata,
+.pingback .edit-link,
+.comment-list .reply a,
+.comment-form label,
+.comment-notes,
+.comment-awaiting-moderation,
+.logged-in-as,
+.form-allowed-tags,
+.no-comments {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+.form-allowed-tags code {
+  font-family: Inconsolata, monospace;
+}
+.wp-caption-text,
+.gallery-caption,
+.widecolumn label,
+.widecolumn .mu_register label {
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
+}
+.logged-in .site .skip-link {
+  font: bold 14px/normal "museo-sans", Helvetica, Arial, sans-serif;
+}
+.entry-content h1, .entry-summary h1, .page-content h1, .comment-content h1,
+.entry-content h2, .entry-summary h2, .page-content h2, .comment-content h2,
+.entry-content h3, .entry-summary h3, .page-content h3, .comment-content h3,
+.entry-content h4, .entry-summary h4, .page-content h4, .comment-content h4,
+.entry-content h5, .entry-summary h5, .page-content h5, .comment-content h5,
+.entry-content h6, .entry-summary h6, .page-content h6, .comment-content h6 {
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+}
+
+/* == Site logo === */
+
+.site-logo {
+  max-width:100%;
+  width:176px;
+  margin-bottom:20px;
+}
+.site-logo img {
+  width:100%;
+  display:block;
+}
+.site-description {
+  display:block;
+}
+/* === User profiles === */
+
+.user-profile {
+  padding:20px 0;
+  min-height:136px; /* 96px image height + 20px top padding + 20px bottom padding */
+}
+.user-profile.user-profile--compact {
+  display:table;
+  padding:0;
+  min-height:0;
+  line-height:1.2em;
+  overflow:hidden;
+  margin-bottom:1.2em;
+}
+.user-profile__image {
+  float:left;
+}
+.user-profile.user-profile--compact .user-profile__image {
+  display:table-cell;
+  vertical-align:middle;
+  height:48px;
+  width:48px;
+  margin-right:10px;
+}
+.user-profile__meta {
+  margin-left:116px; /* 96px image + 20px margin */
+}
+.user-profile.user-profile--compact .user-profile__meta {
+  display:table-cell;
+  vertical-align:middle;
+}
+.user-profile__meta h4 {
+  margin:0 0 6px;
+  clear:none;
+}
+.user-profile__meta p {
+  margin:0;
+}
+/* === Cats/Tags in footer === */
+.site-info a:hover {
+  border-bottom:0;
+}
+.site-footer {
+  overflow:hidden;
+}
+.site-footer .cat-tags {
+  width:48%;
+  margin-right:2%;
+  float:left;
+}
+.site-footer .cat-tags h3 {
+  margin-bottom:1em;
+}
+.site-footer .cat-tags ul {
+  margin-left:1.333em;
+}
+/* === Buttons === */
+.btn,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  display:inline-block;
+  text-decoration:none;
+  min-height:2em;
+  line-height:1.2;
+  border-radius:3px;
+  text-align:center;
+  border-width:0 !important;
+  color: #f9f9f9;
+  background-color: #a23479;
+  border-color: #a23479;
+  border: 1px solid #a23479;
+  padding: 0.6em 0.8em;
+  cursor: pointer;
+  vertical-align: top;
+}
+.btn:hover,
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+  color: #f9f9f9;
+  background-color: #b53a87;
+}
+/* === Custom homepage === */
+.entry-header .posted-on {
+  color: #707070;
+  color: rgba(51, 51, 51, 0.7);
+}
+.hentry-half {
+  width:100%;
+  display:inline-block;
+  vertical-align:top;
+}
+.hentry-half .entry-subtitle {
+  margin-top:1em;
+}
+@media screen and (min-width: 59.6875em) {
+  /* === REDUCING VERT PADDING/MARGIN === */
+  .site-header {
+    margin-bottom: 5%;
+  }
+  .site-footer {
+    display:none;
+  }
+  #secondary .textwidget .btn {
+    width:100%;
+  }
+}
+@media screen and (min-width: 38.75em) {
+  .site-logo {
+    width:264px;
+  }
+  .hentry-half {
+    width:39.6666%; /* 48% - 8.3333% right margin */
+    margin-right:2%;
+    margin-left:8.3333%;
+  }
+  .hentry-half:nth-of-type(odd) {
+    margin-right:4%;
+  }
+  .hentry-half:nth-of-type(even) {
+    margin-right:0;
+    margin-left:0%;
+  }
+  .page-header {
+    border-left-color:#00b3eb;
+  }
+}
