@@ -20,17 +20,28 @@ get_header(); ?>
 
 		$sticky = get_option('sticky_posts');
 
-		$sticky_args = array(
-			'post__in' => $sticky,
-			'posts_per_page' => 9,
-			'ignore_sticky_posts' => 1
-		);
+		$sticky_count = count($sticky);
 
-		$sticky_posts = get_posts($sticky_args);
+		if ($sticky_count > 0) {
 
-		$normal_count = 10 - count($sticky);
+			$sticky_args = array(
+				'post__in' => $sticky,
+				'posts_per_page' => 10,
+				'ignore_sticky_posts' => 0
+			);
+
+			$sticky_posts = get_posts($sticky_args);
+
+		} else {
+
+			$sticky_posts = array();
+
+		}
+
+		$normal_count = 10 - $sticky_count;
 
 		$normal_args = array(
+			'post__not_in' => $sticky,
 			'posts_per_page' => $normal_count,
 			'ignore_sticky_posts' => 1
 		);
