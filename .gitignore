@@ -19,6 +19,7 @@ uploads*
 gt-cache
 ics-importer-cache
 wp-config-sample.php
+wp-config.php
 wp-content/w3tc*
 wp-content/w3-*
 wp-content/plugins/wpengine-snapshot/snapshots/*
