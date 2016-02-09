@@ -18,6 +18,7 @@ uploads*
 *_backup
 gt-cache
 ics-importer-cache
+wp-config.php
 wp-config-sample.php
 wp-content/w3tc*
 wp-content/w3-*
@@ -42,16 +43,10 @@ pclzip-*
 log.txt
 debug.log
 
-# Gallaries in various places
+# Galleries in various places
 gallery/*
 wp-content/gallery/*
 wp-content/album/*
-
-# Found in 'sneakernews' - probably just a backup but never going to be good to include
-wp-content/plugins/plugins
-
-# Found in the root of pod-1009
-.a
 
 # Forum software we probably shouldn't support anyway
 forum/*

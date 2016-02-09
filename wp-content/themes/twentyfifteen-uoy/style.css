@@ -64,6 +64,11 @@ p,address, pre, hr, ul, ol, dl, dd, table {
   color:#fefefe;
   color:rgba(255,255,255,0.9);
 }
+/* === No arrow after 'Continue Reading' link */
+.entry-content .more-link:after,
+.entry-summary .more-link:after {
+  content:'';
+}
 /* === REDUCING VERT PADDING/MARGIN === */
 .site-header {
   padding-top:5%;
