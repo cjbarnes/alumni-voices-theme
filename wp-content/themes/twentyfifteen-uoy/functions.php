@@ -269,4 +269,20 @@ function twentyfifteen_uoy_entry_meta() {
 }
 endif;
 
+// Add custom fields to the API
+add_action('rest_api_init','uoy_custom_api_fields_init',19);
+
+function uoy_custom_api_fields_init() {
+
+  // Add Google profile pic to users
+  register_rest_field('user', 'profile_pic_url', array('get_callback' => 'uoy_custom_api_fields_user_pic'));
+}
+
+function uoy_custom_api_fields_user_pic ($object, $field_name, $request){
+
+  $googlepic = get_user_meta($object['id'])['gpa_user_avatar'][0];
+  return is_null($googlepic) ? get_avatar_url($object['id']) : $googlepic;
+
+}
+
 ?>

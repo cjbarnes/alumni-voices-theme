@@ -13,7 +13,7 @@
 get_header(); ?>
 
 	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main list-page" role="main">
 
 		<?php
 
@@ -43,62 +43,9 @@ get_header(); ?>
 				 *
 				get_template_part( 'content', get_post_format() );
 				*/
-				?>
 
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<?php
-						// Post thumbnail.
-						twentyfifteen_post_thumbnail();
-					?>
+				get_template_part( 'list', get_post_format() );
 
-					<header class="entry-header">
-						<?php
-							the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
-						  $img = get_avatar(get_the_author_meta('ID'));
-						?>
-						<div class="posted-on user-profile user-profile--compact"><div class="user-profile__image"><?php echo $img; ?></div> <div class="user-profile__meta">Posted by <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php echo get_the_author_meta('display_name'); ?></a> on <?php echo get_the_date(); ?></div></div>
-					</header><!-- .entry-header -->
-
-					<div class="entry-content">
-						<?php
-							// Make an excerpt if none exists
-							$post_excerpt = get_the_excerpt();
-							if ($post_excerpt == '') {
-								$excerpt_length = apply_filters('excerpt_length', 55);
-								$post_excerpt = wp_trim_words(get_the_content(), $excerpt_length);
-							}
-
-						  $post_excerpt = strip_shortcodes($post_excerpt);
-
-						  /*
-							wp_link_pages( array(
-								'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
-								'after'       => '</div>',
-								'link_before' => '<span>',
-								'link_after'  => '</span>',
-								'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
-								'separator'   => '<span class="screen-reader-text">, </span>',
-							) );
-							*/
-						?>
-						<p><?php echo $post_excerpt; ?></p>
-					</div><!-- .entry-content -->
-
-					<?php
-						// Author bio.
-						if ( is_single() && get_the_author_meta( 'description' ) ) :
-							get_template_part( 'author-bio' );
-						endif;
-					?>
-
-					<footer class="entry-footer">
-						<?php twentyfifteen_uoy_entry_meta(); ?>
-						<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
-					</footer><!-- .entry-footer -->
-
-				</article><!-- #post-## -->
-
-				<?php
 			// End the loop.
 			endwhile;
 

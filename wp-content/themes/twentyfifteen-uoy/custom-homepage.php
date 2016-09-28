@@ -18,75 +18,86 @@ get_header(); ?>
 
 	<?php
 
-		$sticky = get_option('sticky_posts');
-
-		$sticky_count = count($sticky);
-
-		if ($sticky_count > 0) {
-
-			$sticky_args = array(
-				'post__in' => $sticky,
-				'posts_per_page' => 10,
-				'ignore_sticky_posts' => 0
-			);
-
-			$sticky_posts = get_posts($sticky_args);
-
+		// Set pagination
+		if (get_query_var('paged')) {
+			$paged = get_query_var('paged');
+		} else if (get_query_var('page')) {
+			$paged = get_query_var('page');
 		} else {
-
-			$sticky_posts = array();
-
+			$paged = 1;
 		}
-
-		$normal_count = 10 - $sticky_count;
-
-		$normal_args = array(
-			'post__not_in' => $sticky,
-			'posts_per_page' => $normal_count,
-			'ignore_sticky_posts' => 1
+		// Get posts in order, sticky first
+		$args = array(
+			'paged' => $paged,
+			'posts_per_page' => 10
 		);
+		query_posts($args);
 
-		$normal_posts = get_posts($normal_args);
+		if (have_posts()) {
 
-    $posts = array_merge($sticky_posts, $normal_posts);
+      while (have_posts()) {
 
-		foreach ($posts as $i => $this_post) {
+      	the_post();
 
-			// Make an excerpt if none exists
-			$post_excerpt = $this_post->post_excerpt;
-			if ($post_excerpt == '') {
-				$excerpt_length = apply_filters('excerpt_length', 55);
-				$post_excerpt = wp_trim_words($this_post->post_content, $excerpt_length);
-			}
-
-		  $post_excerpt = strip_shortcodes($post_excerpt);
+				// Make an excerpt if none exists
+				$post_excerpt = get_the_excerpt();
+				if ($post_excerpt == '') {
+					$excerpt_length = apply_filters('excerpt_length', 55);
+					$post_excerpt = wp_trim_words(strip_shortcodes(get_the_content()), $excerpt_length);
+				}
 
 		?>
-  	<!-- <?php //print_r($this_post); ?>-->
-		<div <?php post_class($this_post->ID); ?>>
+		<div <?php post_class(); ?>>
 			<?php
-			if (is_sticky($this_post->ID)) {
-				echo '<span class="sticky-post">Featured</span>';
-				//echo '<div class="post-thumbnail">'.get_the_post_thumbnail($this_post->ID).'</div>';
+			if (is_sticky()) {
+				echo '<span class="sticky-post">Featured post</span>';
+				//echo '<div class="post-thumbnail">'.get_the_post_thumbnail().'</div>';
 			}
 			?>
 			<header class="entry-header">
-		  	<h3 class="entry-title"><a href="<?php echo get_permalink($this_post->ID); ?>"><?php echo $this_post->post_title; ?></a></h3>
-				<?php $img = get_avatar(get_the_author_meta('ID', $this_post->post_author)); ?>
+		  	<h3 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+		<?php
+			// If it's a custom post
+			$post_custom = get_post_custom();
+
+			if (isset($post_custom['ap_author_name'])) {
+
+				$name = implode(', ', $post_custom['ap_author_name']);
+
+		?>
+		<div class="posted-on user-profile user-profile--compact"><div class="user-profile__meta">Posted by <?php echo $name; ?> on <?php echo get_the_date(''); ?></div></div>
+		<?php
+
+			} else {
+
+				// $author_id = get_the_author_meta('ID', get_the_author());
+				$author_id = get_the_author_id();
+				$img = get_avatar($author_id); ?>
 				<div class="posted-on user-profile user-profile--compact">
 					<div class="user-profile__image"><?php echo $img; ?></div>
-					<div class="user-profile__meta">Posted by <a href="<?php echo get_author_posts_url(get_the_author_meta('ID', $this_post->post_author)); ?>"><?php echo get_the_author_meta('display_name', $this_post->post_author); ?></a> on <?php echo get_the_date('', $this_post->ID); ?></div>
+					<div class="user-profile__meta">Posted by <a href="<?php echo get_author_posts_url($author_id); ?>"><?php echo get_the_author(); ?></a> on <?php echo get_the_date(''); ?></div>
 				</div>
+			<?php
+			}
+			?>
 			</header><!-- .entry-header -->
 			<div class="entry-content">
-				<p><?php echo $post_excerpt; ?> <a href="<?php echo get_permalink($this_post->ID); ?>">Continue reading</a></p>
+				<p><?php echo $post_excerpt; ?></p>
 			</div><!-- .entry-content -->
-			<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->', $this_post->ID ); ?>
+			<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->'); ?>
 		</div><?php
 
 		}
 
-		?>
+		// Previous/next page navigation.
+		the_posts_pagination( array(
+			'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
+			'next_text'          => __( 'Next page', 'twentyfifteen' ),
+			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
+		) );
+
+  }
+	?>
 
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->

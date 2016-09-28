@@ -77,7 +77,10 @@ p,address, pre, hr, ul, ol, dl, dd, table {
 .widget {
   margin-bottom: 10%;
 }
-.hentry {
+.hentry,
+/* Thumbnails not included on list pages or custom homepage */
+.page-template-custom-homepage .hentry.has-post-thumbnail,
+.list-page .hentry.has-post-thumbnail {
   padding-top:5%;
 }
 .hentry + .hentry, .page-header + .hentry, .page-header + .page-content {
@@ -99,6 +102,12 @@ p,address, pre, hr, ul, ol, dl, dd, table {
 }
 .post-navigation {
   margin-top: 5%;
+}
+/* === Sticky post banner === */
+.sticky-post {
+  left: -10px;
+  top: -10px;
+  transform: rotate(-5deg);
 }
 /* === Fonts === */
 /* Kept in same order as they are in 2015/style.css to keep specificity */
