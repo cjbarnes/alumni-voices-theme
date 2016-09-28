@@ -27,7 +27,7 @@ wp-content/uploads/snapshots
 wp-content/themes/thesis*/custom/cache
 wp-content/themes/thesis*/lib/scripts/cache
 wp-content/themes/*/cache
-wp-content/plugins/*/cache
+wp-content/plugins/*
 wp-content/w3tc-bak
 wp-content/backup*
 wp-content/temp*
@@ -43,7 +43,7 @@ pclzip-*
 log.txt
 debug.log
 
-# Gallaries in various places
+# Galleries in various places
 gallery/*
 wp-content/gallery/*
 wp-content/album/*
