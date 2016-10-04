@@ -19,7 +19,7 @@ function uoy_remove_post_formats() {
   remove_theme_support('post-formats');
   add_theme_support('post-formats', array(
     'image', 'video', 'gallery'
- ));
+));
 }
 
 //
@@ -48,7 +48,7 @@ function uoy_display_user($atts) {
     "email" => false,
     "name" => false,
     "slug" => false
- ), $atts));
+), $atts));
   $field = false;
   $value = false;
   if ($id !== false) {
@@ -96,7 +96,7 @@ function uoy_customize_register($wp_customize) {
     'capability' => 'edit_theme_options',
     'default' => 'dark',
     'transport' => 'refresh'
- ));
+));
 
   $wp_customize->add_control('logo_color', array(
     'label' => __('Logo colour'),
@@ -104,7 +104,7 @@ function uoy_customize_register($wp_customize) {
     'section' => 'header_image',
     'settings' => 'logo_color_setting',
     'choices' => array('dark' => 'Dark', 'light' => 'Light')
- ));
+));
 }
 add_action('customize_register', 'uoy_customize_register', 12);
 //
@@ -209,64 +209,102 @@ function uoy_redirect_ms_front_page() {
     exit;
   }
 }
-if ( ! function_exists( 'twentyfifteen_entry_meta' ) ) :
+if (! function_exists('twentyfifteen_entry_meta')) :
 /**
  * Prints HTML with meta information for the categories, tags.
  *
  * @since Twenty Fifteen UoY 1.0
  */
 function twentyfifteen_uoy_entry_meta() {
-  if ( is_sticky() && is_home() && ! is_paged() ) {
-    printf( '<span class="sticky-post">%s</span>', __( 'Featured', 'twentyfifteen' ) );
+  if (is_sticky() && is_home() && ! is_paged()) {
+    printf('<span class="sticky-post">%s</span>', __('Featured', 'twentyfifteen'));
   }
 
   $format = get_post_format();
-  if ( current_theme_supports( 'post-formats', $format ) ) {
-    printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
-      sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'twentyfifteen' ) ),
-      esc_url( get_post_format_link( $format ) ),
-      get_post_format_string( $format )
-    );
+  if (current_theme_supports('post-formats', $format)) {
+    printf('<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
+      sprintf('<span class="screen-reader-text">%s </span>', _x('Format', 'Used before post format.', 'twentyfifteen')),
+      esc_url(get_post_format_link($format)),
+      get_post_format_string($format)
+   );
   }
 
-  if ( 'post' == get_post_type() ) {
+  if ('post' == get_post_type()) {
 
-    $categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen' ) );
-    if ( $categories_list && twentyfifteen_categorized_blog() ) {
-      printf( '<span class="cat-links">%1$s %2$s</span>',
-        _x( 'Posted in', 'Used before category names.', 'twentyfifteen' ),
+    $categories_list = get_the_category_list(_x(', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen'));
+    if ($categories_list && twentyfifteen_categorized_blog()) {
+      printf('<span class="cat-links">%1$s %2$s</span>',
+        _x('Posted in', 'Used before category names.', 'twentyfifteen'),
         $categories_list
-      );
+     );
     }
 
-    $tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen' ) );
-    if ( $tags_list ) {
-      printf( '<span class="tags-links">%1$s %2$s</span>',
-        _x( 'Tagged with', 'Used before tag names.', 'twentyfifteen' ),
+    $tags_list = get_the_tag_list('', _x(', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen'));
+    if ($tags_list) {
+      printf('<span class="tags-links">%1$s %2$s</span>',
+        _x('Tagged with', 'Used before tag names.', 'twentyfifteen'),
         $tags_list
-      );
+     );
     }
   }
 
-  if ( is_attachment() && wp_attachment_is_image() ) {
+  if (is_attachment() && wp_attachment_is_image()) {
     // Retrieve attachment metadata.
     $metadata = wp_get_attachment_metadata();
 
-    printf( '<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
-      _x( 'Full size', 'Used before full size attachment link.', 'twentyfifteen' ),
-      esc_url( wp_get_attachment_url() ),
+    printf('<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
+      _x('Full size', 'Used before full size attachment link.', 'twentyfifteen'),
+      esc_url(wp_get_attachment_url()),
       $metadata['width'],
       $metadata['height']
-    );
+   );
   }
 
-  if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+  if (! is_single() && ! post_password_required() && (comments_open() || get_comments_number())) {
     echo '<span class="comments-link">';
     /* translators: %s: post title */
-    comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'twentyfifteen' ), get_the_title() ) );
+    comments_popup_link(sprintf(__('Leave a comment<span class="screen-reader-text"> on %s</span>', 'twentyfifteen'), get_the_title()));
     echo '</span>';
   }
 }
 endif;
 
+/*
+ * Update a user's image if their Google login isn't valid any more
+ * INVESTIGATION, NOT FOLLOWED UP - CM 4/10/16
+ *
+add_filter('get_avatar', 'check_avatar', 12, 5);
+
+function check_avatar($avatar, $id_or_email, $size, $default, $alt) {
+
+  // Get user ID
+  if (is_object($id_or_email)) {
+    // Comment or post
+    $id_or_email = (int) $id_or_email->user_id;
+  } else if (is_string($id_or_email)) {
+    // Try email
+    $user = get_user_by('email',$id_or_email);
+    if ($user) {
+      $id_or_email = $user->ID;
+    }
+  }
+
+  //echo '<p>Checking avatar ('.$id_or_email.') now!</p>';
+
+  if (is_numeric($id_or_email)) {
+    $google_picture = get_user_meta($id_or_email, 'gpa_user_avatar', true);
+    $user_meta = get_user_meta($id_or_email);
+    // echo '<pre>';
+    // print_r($user_meta);
+    // echo '</pre>';
+    if ($google_picture) {
+      $safe_alt = false === $alt ? '' : esc_attr( $alt );
+      $avatar = "<img alt='{$safe_alt}' src='{$google_picture}' class='avatar avatar-{$size} photo avatar-default' height='{$size}' width='{$size}' />";
+    }
+  }
+
+  return $avatar;
+
+}
+*/
 ?>
