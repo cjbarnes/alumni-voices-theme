@@ -270,6 +270,19 @@ function twentyfifteen_uoy_entry_meta() {
 endif;
 
 /*
+ * Change the email address that sends from our blog
+ */
+add_filter('wp_mail_from', 'my_mail_from');
+function my_mail_from($email) {
+    return "no-reply@york.ac.uk";
+}
+add_filter( 'wp_mail_from_name', 'my_mail_from_name' );
+function my_mail_from_name( $name ) {
+    return "University of York";
+}
+
+
+/*
  * Update a user's image if their Google login isn't valid any more
  * INVESTIGATION, NOT FOLLOWED UP - CM 4/10/16
  *
