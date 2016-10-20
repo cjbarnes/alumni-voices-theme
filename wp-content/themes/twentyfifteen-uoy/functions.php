@@ -290,7 +290,7 @@ function uoy_custom_api_fields_user_pic ($object, $field_name, $request){
  */
 add_filter('wp_mail_from', 'my_mail_from');
 function my_mail_from($email) {
-    return "no-reply@york.ac.uk";
+    return "do-not-reply@york.ac.uk";
 }
 add_filter( 'wp_mail_from_name', 'my_mail_from_name' );
 function my_mail_from_name( $name ) {
