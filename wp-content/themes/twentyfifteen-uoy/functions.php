@@ -274,7 +274,7 @@ endif;
  */
 add_filter('wp_mail_from', 'my_mail_from');
 function my_mail_from($email) {
-    return "no-reply@york.ac.uk";
+    return "do-not-reply@york.ac.uk";
 }
 add_filter( 'wp_mail_from_name', 'my_mail_from_name' );
 function my_mail_from_name( $name ) {

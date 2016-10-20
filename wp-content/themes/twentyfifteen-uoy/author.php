@@ -29,7 +29,9 @@ get_header(); ?>
 	        echo '<h1 class="page-title">'.$title.'</h1>';
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 					echo do_shortcode("[user id=".$curauth->ID."]");
-	        echo '<p><a class="btn" href="/student-voices/contact?blogger='.get_the_author_meta('user_nicename',get_the_author_id()).'">Ask '.get_the_author().' a question</a></p>';
+					if ($curauth->caps['contributor'] == "1") {
+		        echo '<p><a class="btn" href="/student-voices/contact?blogger='.get_the_author_meta('user_nicename',get_the_author_id()).'">Ask '.get_the_author().' a question</a></p>';
+		      }
 				?>
 			</header><!-- .page-header -->
 
