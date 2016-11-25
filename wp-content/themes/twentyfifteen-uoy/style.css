@@ -340,6 +340,11 @@ input[type="submit"]:hover {
 .hentry-half .entry-subtitle {
   margin-top:1em;
 }
+/* ==== CONTACT FORM 7 ==== */
+.wpcf7-form .is-hidden {
+  display:none;
+}
+
 @media screen and (min-width: 59.6875em) {
   /* === REDUCING VERT PADDING/MARGIN === */
   .site-header {

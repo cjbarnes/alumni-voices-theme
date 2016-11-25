@@ -18,7 +18,11 @@
 	<header class="entry-header">
 		<?php
 
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			if ( is_single() ) :
+				the_title( '<h1 class="entry-title">', '</h1>' );
+			else :
+				the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' );
+			endif;
 
 			// If it's a custom post
 			$post_custom = get_post_custom();
@@ -64,7 +68,7 @@
 		// Author bio.
 		if (isset($post_custom['ap_author_bio'])) {
 			get_template_part( 'guest-bio' );
-		} elseif ( get_the_author_meta( 'description' ) ) {
+		} elseif ( is_single() && get_the_author_meta( 'description' ) ) {
 			get_template_part( 'author-bio' );
 		}
 	?>

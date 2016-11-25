@@ -20,6 +20,7 @@ gt-cache
 ics-importer-cache
 wp-config.php
 wp-config-sample.php
+wp-config.php
 wp-content/w3tc*
 wp-content/w3-*
 wp-content/plugins/wpengine-snapshot/snapshots/*
@@ -27,7 +28,7 @@ wp-content/uploads/snapshots
 wp-content/themes/thesis*/custom/cache
 wp-content/themes/thesis*/lib/scripts/cache
 wp-content/themes/*/cache
-wp-content/plugins/*/cache
+wp-content/plugins/*
 wp-content/w3tc-bak
 wp-content/backup*
 wp-content/temp*
