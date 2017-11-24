@@ -39,7 +39,7 @@
 				}
 
 				?>
-				<a href="http://www.york.ac.uk/"><img src="<?php echo $img_src; ?>" alt="University of York" width="564" height="80"></a>
+				<a href="http://www.york.ac.uk/"><img src="<?php echo $img_src; ?>" alt="University of York" width="528" height="244"></a>
 			</div>
 			<div class="site-branding">
 				<?php
