@@ -89,3 +89,4 @@ forum/*
 *.tar
 *.tgz
 *.gz
+.DS_Store

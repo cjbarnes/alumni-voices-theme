@@ -276,8 +276,9 @@ function uoy_custom_api_fields_init() {
   register_rest_field('user', 'profile_pic_url', array('get_callback' => 'uoy_custom_api_fields_user_pic'));
 }
 function uoy_custom_api_fields_user_pic ($object, $field_name, $request){
-  $googlepic = get_user_meta($object['id'])['gpa_user_avatar'][0];
-  return is_null($googlepic) ? get_avatar_url($object['id']) : $googlepic;
+  //$googlepic = get_user_meta($object['id'])['gpa_user_avatar'][0];
+  //return is_null($googlepic) ? get_avatar_url($object['id']) : $googlepic;
+  return get_avatar_url($object['id']);
 }
 
 /*
