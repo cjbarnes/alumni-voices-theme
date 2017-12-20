@@ -277,8 +277,9 @@ function uoy_custom_api_fields_init() {
 }
 function uoy_custom_api_fields_user_pic ($object, $field_name, $request){
   //$googlepic = get_user_meta($object['id'])['gpa_user_avatar'][0];
-  //return is_null($googlepic) ? get_avatar_url($object['id']) : $googlepic;
-  return get_avatar_url($object['id']);
+  $avatarpic = get_wp_user_avatar_src($object['id'], 96);
+  return is_null($avatarpic) ? get_avatar_url($object['id']) : $avatarpic;
+  //return get_avatar_url($object['id']);
 }
 
 /*
