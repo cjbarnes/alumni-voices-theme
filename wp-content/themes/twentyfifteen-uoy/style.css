@@ -365,6 +365,10 @@ input[type="submit"]:hover {
   #secondary .textwidget .btn {
     width:100%;
   }
+  /* change site-header margin at this breakpoint to align logo with top of post content*/
+   .site-header {
+    margin: 12% 0 6% 0;
+  }
 }
 @media screen and (min-width: 38.75em) {
   .site-logo {
