@@ -345,6 +345,15 @@ input[type="submit"]:hover {
   display:none;
 }
 
+/* changes to background colours */
+.sidebar,
+.hentry{
+  background-color: #fefefe;
+}
+.site-main {
+  background-color: #f0f2e9;
+}
+
 @media screen and (min-width: 59.6875em) {
   /* === REDUCING VERT PADDING/MARGIN === */
   .site-header {
@@ -377,3 +386,4 @@ input[type="submit"]:hover {
     border-left-color:#00b3eb;
   }
 }
+
