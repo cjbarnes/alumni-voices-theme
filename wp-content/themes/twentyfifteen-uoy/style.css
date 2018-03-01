@@ -346,6 +346,10 @@ input[type="submit"]:hover {
 }
 
 /* changes to background colours */
+body:before,
+		.site-header {
+			background-color: #fefefe !important;
+		}
 .sidebar,
 .hentry{
   background-color: #fefefe;
@@ -391,3 +395,53 @@ input[type="submit"]:hover {
   }
 }
 
+p {
+  clear: both;
+}
+
+/* a img, img {
+  margin: 0 0 1em 0 !important;
+  max-width:45%;
+} */
+
+ img {
+  margin: 0 0 1em 0 !important;
+}
+
+
+@media screen and (max-width: 600px) {
+  img {
+    width:100%;
+  }
+}
+
+
+
+@media screen and (min-width: 1100px) and (max-width: 1200px) {
+  img {
+    width:100%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  img {
+    margin: 0 0 1em 0 !important;
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.entry-content,
+.entry-summary,
+.page-content,
+.comment-content {
+	word-wrap: none;
+}
+
+.entry-header,
+.entry-content,
+.entry-summary {
+  padding: 1em;
+  margin:0;
+}
