@@ -295,6 +295,17 @@ function my_mail_from_name( $name ) {
 }
 
 
+function filter_ptags_on_images($content){
+  return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+
+add_filter('the_content', 'filter_ptags_on_images');
+
+add_filter('the_content', function($content) {
+  $content = force_balance_tags($content);
+  return preg_replace('/<p>(?:\s|&nbsp;)*?<\/p>/i', '', $content);
+}, 10, 1);
+
 /*
  * Update a user's image if their Google login isn't valid any more
  * INVESTIGATION, NOT FOLLOWED UP - CM 4/10/16
