@@ -294,13 +294,13 @@ function my_mail_from_name( $name ) {
     return "University of York";
 }
 
-
+/* remove p tags from img */
 function filter_ptags_on_images($content){
   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
-
 add_filter('the_content', 'filter_ptags_on_images');
 
+/* remove empty paragraphs */
 add_filter('the_content', function($content) {
   $content = force_balance_tags($content);
   return preg_replace('/<p>(?:\s|&nbsp;)*?<\/p>/i', '', $content);

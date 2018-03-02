@@ -346,17 +346,20 @@ input[type="submit"]:hover {
 }
 
 /* changes to background colours */
-body:before,
-		.site-header {
-			background-color: #fefefe !important;
-		}
-.sidebar,
-.hentry{
-  background-color: #fefefe;
+@media screen and (min-width: 955px) {
+  body:before,
+  .site-header {
+    background-color: #fefefe !important;
+  }
+  .sidebar,
+  .hentry{
+    background-color: #fefefe;
+  }
 }
-.site-main {
-  background-color: #f0f2e9;
-}
+  .site-main {
+    background-color: #f0f2e9;
+  }
+
 
 @media screen and (min-width: 59.6875em) {
   /* === REDUCING VERT PADDING/MARGIN === */
@@ -408,14 +411,11 @@ p {
   margin: 0 0 1em 0 !important;
 }
 
-
 @media screen and (max-width: 600px) {
   img {
     width:100%;
   }
 }
-
-
 
 @media screen and (min-width: 1100px) and (max-width: 1200px) {
   img {
