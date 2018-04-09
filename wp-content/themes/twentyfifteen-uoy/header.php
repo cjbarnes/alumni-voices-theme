@@ -33,9 +33,9 @@
 				$logo_color = get_theme_mod( 'logo_color_setting', 'dark' );
 
 				if ($logo_color === 'dark') {
-					$img_src.= get_stylesheet_directory_uri().'/img/logo-dark.png';
+					$img_src.= get_stylesheet_directory_uri().'/img/logo-dark.svg';
 				} else {
-					$img_src.= get_stylesheet_directory_uri().'/img/logo-light.png';
+					$img_src.= get_stylesheet_directory_uri().'/img/logo-light.svg';
 				}
 
 				?>
