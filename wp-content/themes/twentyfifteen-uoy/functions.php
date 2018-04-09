@@ -306,6 +306,22 @@ add_filter('the_content', function($content) {
   return preg_replace('/<p>(?:\s|&nbsp;)*?<\/p>/i', '', $content);
 }, 10, 1);
 
+
+/*
+ * Remove some widgets
+ * - Archives (added to sidebar with custom appearance)
+ * - Meta
+ * - Recent comments
+ */
+
+add_action( 'widgets_init', 'remove_widgets', 99 );
+function remove_widgets() {
+    unregister_widget( 'WP_Widget_Archives' );
+    unregister_widget( 'WP_Widget_Meta' );
+    unregister_widget( 'WP_Widget_Recent_Comments' );
+}
+
+
 /*
  * Update a user's image if their Google login isn't valid any more
  * INVESTIGATION, NOT FOLLOWED UP - CM 4/10/16
