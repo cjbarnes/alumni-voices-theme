@@ -432,16 +432,13 @@ p {
   }
 }
 
+
 .entry-content,
 .entry-summary,
 .page-content,
 .comment-content {
-	word-wrap: none;
+  hyphens: none !important;
+	word-wrap: none !important;
 }
 
-.entry-header,
-.entry-content,
-.entry-summary {
-  padding: 1em;
-  margin:0;
-}
+
