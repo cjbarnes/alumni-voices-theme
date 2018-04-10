@@ -276,10 +276,18 @@ input[type="submit"],
 .user-profile__meta h4 {
   margin:0 0 6px;
   clear:none;
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+  font-size: 3rem;
 }
 .user-profile__meta p {
   margin:0;
 }
+
+/*move Ask "user" a question button in line with paragraphs*/
+.page-header a.btn {
+  margin-left: 11.5rem;
+}
+
 /* === Cats/Tags in footer === */
 .site-info a:hover {
   border-bottom:0;
@@ -410,5 +418,3 @@ input[type="submit"]:hover {
 	word-wrap: normal!important;
 	clear: both;
 }
-
-
