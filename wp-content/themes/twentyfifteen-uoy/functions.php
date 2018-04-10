@@ -308,7 +308,7 @@ add_filter('the_content', function($content) {
 
 
 /*
- * Remove some widgets
+ * Remove some widgets - DH 9/4/2018
  * - Archives (added to sidebar with custom appearance)
  * - Meta
  * - Recent comments
