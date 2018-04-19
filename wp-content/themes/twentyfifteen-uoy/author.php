@@ -27,11 +27,11 @@ get_header(); ?>
 				<?php
 	        $title = sprintf( __( 'Posts by %s' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	        echo '<h1 class="page-title">'.$title.'</h1>';
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+					//the_archive_description( '<div class="taxonomy-description">', '</div>' );
 					echo do_shortcode("[user id=".$curauth->ID."]");
-					if ($curauth->caps['contributor'] == "1") {
-		        echo '<p><a class="btn" href="/student-voices/contact?blogger='.get_the_author_meta('user_nicename',get_the_author_id()).'">Ask '.get_the_author().' a question</a></p>';
-		      }
+					// if ($curauth->caps['contributor'] == "1") {
+		     //    echo '<p><a class="btn" href="/student-voices/contact?blogger='.get_the_author_meta('user_nicename',get_the_author_id()).'">Ask '.get_the_author().' a question</a></p>';
+		     //  }
 				?>
 			</header><!-- .page-header -->
 
