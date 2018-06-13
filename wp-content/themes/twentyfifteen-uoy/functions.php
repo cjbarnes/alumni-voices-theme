@@ -274,12 +274,17 @@ add_action('rest_api_init','uoy_custom_api_fields_init',19);
 function uoy_custom_api_fields_init() {
   // Add Google profile pic to users
   register_rest_field('user', 'profile_pic_url', array('get_callback' => 'uoy_custom_api_fields_user_pic'));
+  // Add custom fields
+  register_rest_field('post', 'custom_fields', array('get_callback' => 'uoy_custom_api_fields_custom_fields'));
 }
 function uoy_custom_api_fields_user_pic ($object, $field_name, $request){
   //$googlepic = get_user_meta($object['id'])['gpa_user_avatar'][0];
   $avatarpic = get_wp_user_avatar_src($object['id'], 96);
   return is_null($avatarpic) ? get_avatar_url($object['id']) : $avatarpic;
   //return get_avatar_url($object['id']);
+}
+function uoy_custom_api_fields_custom_fields ($object, $field_name, $request){
+  return get_post_meta($object['id']);
 }
 
 /*
@@ -292,33 +297,6 @@ function my_mail_from($email) {
 add_filter( 'wp_mail_from_name', 'my_mail_from_name' );
 function my_mail_from_name( $name ) {
     return "University of York";
-}
-
-/* remove p tags from img */
-function filter_ptags_on_images($content){
-  return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-}
-add_filter('the_content', 'filter_ptags_on_images');
-
-/* remove empty paragraphs */
-add_filter('the_content', function($content) {
-  $content = force_balance_tags($content);
-  return preg_replace('/<p>(?:\s|&nbsp;)*?<\/p>/i', '', $content);
-}, 10, 1);
-
-
-/*
- * Remove some widgets - DH 9/4/2018
- * - Archives (added to sidebar with custom appearance)
- * - Meta
- * - Recent comments
- */
-
-add_action( 'widgets_init', 'remove_widgets', 99 );
-function remove_widgets() {
-    unregister_widget( 'WP_Widget_Archives' );
-    unregister_widget( 'WP_Widget_Meta' );
-    unregister_widget( 'WP_Widget_Recent_Comments' );
 }
 
 
