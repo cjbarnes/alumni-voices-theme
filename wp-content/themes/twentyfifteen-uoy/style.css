@@ -276,10 +276,18 @@ input[type="submit"],
 .user-profile__meta h4 {
   margin:0 0 6px;
   clear:none;
+  font-family: "chaparral-pro", Georgia, "Times New Roman", Times, serif;
+  font-size: 3rem;
 }
 .user-profile__meta p {
   margin:0;
 }
+
+/*move Ask "user" a question button in line with paragraphs*/
+.page-header a.btn {
+  margin-left: 11.5rem;
+}
+
 /* === Cats/Tags in footer === */
 .site-info a:hover {
   border-bottom:0;
@@ -345,6 +353,22 @@ input[type="submit"]:hover {
   display:none;
 }
 
+/* changes to background colours */
+@media screen and (min-width: 955px) {
+  body:before,
+  .site-header {
+    background-color: #fefefe !important;
+  }
+  .sidebar,
+  .hentry{
+    background-color: #fefefe;
+  }
+}
+  .site-main {
+    background-color: #f0f2e9;
+  }
+
+
 @media screen and (min-width: 59.6875em) {
   /* === REDUCING VERT PADDING/MARGIN === */
   .site-header {
@@ -355,6 +379,10 @@ input[type="submit"]:hover {
   }
   #secondary .textwidget .btn {
     width:100%;
+  }
+  /* change site-header margin at this breakpoint to align logo with top of post content*/
+   .site-header {
+    margin: 12% 0 6% 0;
   }
 }
 @media screen and (min-width: 38.75em) {
@@ -376,4 +404,17 @@ input[type="submit"]:hover {
   .page-header {
     border-left-color:#00b3eb;
   }
+}
+
+
+.entry-content,
+.entry-summary,
+.page-content,
+.comment-content {
+	-webkit-hyphens: none!important;
+	-moz-hyphens: none!important;
+	-ms-hyphens: none!important;
+	hyphens: none!important;
+	word-wrap: normal!important;
+	clear: both;
 }
