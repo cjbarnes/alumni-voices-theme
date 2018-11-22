@@ -30,9 +30,14 @@
 			if (isset($post_custom['ap_author_name'])) {
 
 				$name = implode(', ', $post_custom['ap_author_name']);
+				$avatar = implode($post_custom['ap_author_avatar']);
 
 		?>
-		<div class="posted-on user-profile user-profile--compact"><div class="user-profile__meta">Posted by <?php echo $name; ?> on <?php echo get_the_date(); ?></div></div>
+		<div class="posted-on user-profile user-profile--compact"><?php
+			if ($avatar !== '') {
+				echo '<div class="user-profile__image"><img src="'.$avatar.'" width="96" height="96" alt="'.$name.'" class="avatar avatar-96 wp-user-avatar wp-user-avatar-96 photo avatar-default"></div> ';
+			}
+			?><div class="user-profile__meta">Posted by <?php echo $name; ?> on <?php echo get_the_date(''); ?></div></div>
 		<?php
 
 			} else {
