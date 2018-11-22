@@ -259,6 +259,10 @@ input[type="submit"],
 .user-profile__image {
   float:left;
 }
+.user-profile__image img {
+  width:48px;
+  height:48px;
+}
 .user-profile.user-profile--compact .user-profile__image {
   display:table-cell;
   vertical-align:middle;
