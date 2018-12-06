@@ -297,7 +297,7 @@ function uoy_custom_api_fields_guest_blogger ($object, $field_name, $request){
       'ap_author_avatar' => $object['custom_fields']['ap_author_avatar']
     );
   }
-  return $object;
+  return false;
 }
 
 /*
