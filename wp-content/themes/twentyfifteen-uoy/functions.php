@@ -276,6 +276,8 @@ function uoy_custom_api_fields_init() {
   register_rest_field('user', 'profile_pic_url', array('get_callback' => 'uoy_custom_api_fields_user_pic'));
   // Add custom fields
   register_rest_field('post', 'custom_fields', array('get_callback' => 'uoy_custom_api_fields_custom_fields'));
+  // Add guest blogger details (or false if not a guest blogger)
+  register_rest_field('post', 'guest_blogger', array('get_callback' => 'uoy_custom_api_fields_guest_blogger'));
 }
 function uoy_custom_api_fields_user_pic ($object, $field_name, $request){
   //$googlepic = get_user_meta($object['id'])['gpa_user_avatar'][0];
@@ -285,6 +287,17 @@ function uoy_custom_api_fields_user_pic ($object, $field_name, $request){
 }
 function uoy_custom_api_fields_custom_fields ($object, $field_name, $request){
   return get_post_meta($object['id']);
+}
+function uoy_custom_api_fields_guest_blogger ($object, $field_name, $request){
+  // Guestblogger id is 59
+  if ($object['author'] === 59) {
+    return array(
+      'ap_author_name' => $object['custom_fields']['ap_author_name'],
+      'ap_author_bio' => $object['custom_fields']['ap_author_bio'],
+      'ap_author_avatar' => $object['custom_fields']['ap_author_avatar']
+    );
+  }
+  return $object;
 }
 
 /*
