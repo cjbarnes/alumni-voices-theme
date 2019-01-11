@@ -8,9 +8,18 @@
  */
 
 	$post_custom = get_post_custom();
-	$bio = implode('</p>\n<p class="author-bio">', $post_custom['ap_author_bio']);
-	$name = implode(',', $post_custom['ap_author_name']);
-	$avatar = implode($post_custom['ap_author_avatar']);
+	$bio = "";
+	if (isset($post_custom['ap_author_bio']) && is_array($post_custom['ap_author_bio'])) {
+		$bio = implode('</p>\n<p class="author-bio">', $post_custom['ap_author_bio']);
+	}
+	$name = "";
+	if (isset($post_custom['ap_author_name']) && is_array($post_custom['ap_author_name'])) {
+		$name = implode(',', $post_custom['ap_author_name']);
+	}
+	$avatar = "";
+	if (isset($post_custom['ap_author_avatar']) && is_array($post_custom['ap_author_avatar'])) {
+		$avatar = implode("",$post_custom['ap_author_avatar']);
+	}
 
 ?>
 
