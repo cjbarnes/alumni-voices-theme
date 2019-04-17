@@ -69,6 +69,12 @@ p,address, pre, hr, ul, ol, dl, dd, table {
 .entry-summary .more-link:after {
   content:'';
 }
+/* === Override default word-wrapping in sidebar === */
+.widget {
+  -moz-hyphens: none;
+  hyphens: none;
+  word-wrap: normal;
+}
 /* === REDUCING VERT PADDING/MARGIN === */
 .site-header {
   padding-top:5%;
