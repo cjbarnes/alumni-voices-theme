@@ -39,13 +39,6 @@ if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) || is_active_sidebar(
 		<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 			<div id="widget-area" class="widget-area" role="complementary">
 				<?php dynamic_sidebar( 'sidebar-1' ); ?>
-				<aside id="archives-" class="widget widget_archives"><h2 class="widget-title">Archives</h2>	
-				<select name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-  <option value=""><?php echo esc_attr( __( 'Select year' ) ); ?></option> 
-  <?php wp_get_archives( array( 'type' => 'yearly', 'format' => 'option' ) ); ?>
-</select>
-					</aside>
-			
 			</div><!-- .widget-area -->
 		<?php endif; ?>
 
