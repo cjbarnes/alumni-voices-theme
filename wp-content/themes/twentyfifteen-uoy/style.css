@@ -23,9 +23,13 @@ input[type="submit"],
 p,address, pre, hr, ul, ol, dl, dd, table {
   margin-bottom: 1em;
 }
+
 ul, ol {
     margin-left:1.3333em;
 }
+/* Except... */
+ul.tagcloud { margin-left:0; }
+
 .entry-content a,
 .entry-summary a,
 .page-content a,
