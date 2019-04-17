@@ -23,6 +23,9 @@ input[type="submit"],
 p,address, pre, hr, ul, ol, dl, dd, table {
   margin-bottom: 1em;
 }
+ul, ol {
+    margin-left:1.3333em;
+}
 .entry-content a,
 .entry-summary a,
 .page-content a,
