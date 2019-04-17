@@ -28,7 +28,7 @@ ul, ol {
     margin-left:1.3333em;
 }
 /* Except... */
-ul.tagcloud { margin-left:0; }
+ul.wp-tag-cloud { margin-left:0; }
 
 .entry-content a,
 .entry-summary a,
