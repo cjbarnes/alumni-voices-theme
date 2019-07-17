@@ -299,6 +299,12 @@ function my_mail_from_name( $name ) {
     return "University of York";
 }
 
+// Removes the hash location from "read more" links
+function remove_read_more_hash( $link ) {
+	$link = preg_replace( '|#more-[0-9]+|', '', $link );
+	return $link;
+}
+add_filter( 'the_content_more_link', 'remove_read_more_hash' );
 
 /*
  * Update a user's image if their Google login isn't valid any more
@@ -338,4 +344,3 @@ function check_avatar($avatar, $id_or_email, $size, $default, $alt) {
 
 }
 */
-?>
