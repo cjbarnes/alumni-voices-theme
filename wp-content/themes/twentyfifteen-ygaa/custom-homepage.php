@@ -6,9 +6,8 @@
  * Displays the first post as a featured post (use a sticky post)
  * Then lists teasers for next 9 posts
  *
- * @package UniversityOfYork
- * @subpackage Twenty_Fifteen_UoY
- * @since Twenty Fifteen UoY 1.0
+ * @package Twenty_Fifteen_YGAA
+ * @since Twenty Fifteen YGAA 1.0
  */
 
 get_header(); ?>

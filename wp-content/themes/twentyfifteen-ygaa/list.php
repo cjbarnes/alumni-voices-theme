@@ -4,9 +4,8 @@
  *
  * Used for index/archive/search.
  *
- * @package UniversityOfYork
- * @subpackage Twenty_Fifteen_UoY
- * @since Twenty Fifteen UoY 1.0
+ * @package Twenty_Fifteen_YGAA
+ * @since Twenty Fifteen YGAA 1.0
  */
 ?>
 

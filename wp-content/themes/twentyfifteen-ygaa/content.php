@@ -2,8 +2,7 @@
 /**
  * The template for displaying standards post content
  *
- * @package UniversityOfYork
- * @subpackage Twenty_Fifteen_UoY
+ * @package Twenty_Fifteen_UoY
  * @since Twenty Fifteen UoY 1.0
  */
 ?>
