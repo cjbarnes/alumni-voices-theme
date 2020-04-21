@@ -199,7 +199,7 @@ add_filter('admin_head', 'uoy_edit_permission_check', 1, 4);
 // Redirect front page to /student-voices
 // Remove when aggregated blog is needed
 //
-add_action('template_redirect', 'uoy_redirect_ms_front_page');
+// add_action('template_redirect', 'uoy_redirect_ms_front_page');
 function uoy_redirect_ms_front_page() {
   if (is_main_site() && is_front_page()) {
 	  $url = home_url('/student-voices/');
@@ -268,6 +268,7 @@ function twentyfifteen_uoy_entry_meta() {
 }
 endif;
 
+/*
 // Add custom fields to the API
 add_action('rest_api_init','uoy_custom_api_fields_init',19);
 function uoy_custom_api_fields_init() {
@@ -285,6 +286,7 @@ function uoy_custom_api_fields_user_pic ($object, $field_name, $request){
 function uoy_custom_api_fields_custom_fields ($object, $field_name, $request){
   return get_post_meta($object['id']);
 }
+*/
 
 /*
  * Change the email address that sends from our blog
