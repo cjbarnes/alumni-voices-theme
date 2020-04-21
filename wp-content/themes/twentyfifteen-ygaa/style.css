@@ -435,3 +435,24 @@ input[type="submit"]:hover {
 	word-wrap: normal!important;
 	clear: both;
 }
+
+
+/* === Alumni Voices additions and overrides === */
+
+/* Apply YGAA aqua colour */
+.widget-title {
+	color: #00abaa;
+}
+.post .entry-footer {
+	background-color: #00abaa;
+}
+@media screen and (min-width: 38.75em) {
+.page-header {
+    border-left-color: #00abaa;
+}
+}
+
+/* Larger site name */
+.site-title a {
+	font-size: 1.1em;
+}
