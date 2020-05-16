@@ -359,7 +359,7 @@ function ygaa_fallback_jetpack_post_image( $media, $post_id, $args ) {
         return $media;
     } else {
         $permalink = get_permalink( $post_id );
-        $url = apply_filters( 'jetpack_photon_url', get_stylesheet_directory_uri() . '/img/fallback-post-image.png' );
+        $url = apply_filters( 'jetpack_photon_url', get_stylesheet_directory_uri() . '/img/fallback-post-image-002.png' );
 
         return array( array(
             'type'  => 'image',
