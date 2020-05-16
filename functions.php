@@ -345,3 +345,29 @@ function check_avatar($avatar, $id_or_email, $size, $default, $alt) {
 
 }
 */
+
+if ( ! function_exists( 'ygaa_fallback_jetpack_post_image' ) ) :
+/**
+ * Use a fallback featured image for Jetpack related posts and social sharing.
+ * @param  array  $media   Array of potential images for this post
+ * @param  int    $post_id Post ID
+ * @param  array  $args    Array of options
+ * @return array          Array of potential images for this post
+ */
+function ygaa_fallback_jetpack_post_image( $media, $post_id, $args ) {
+    if ( $media ) {
+        return $media;
+    } else {
+        $permalink = get_permalink( $post_id );
+        $url = apply_filters( 'jetpack_photon_url', get_stylesheet_directory_uri() . '/img/fallback-post-image.png' );
+
+        return array( array(
+            'type'  => 'image',
+            'from'  => 'custom_fallback',
+            'src'   => esc_url( $url ),
+            'href'  => $permalink,
+        ) );
+    }
+}
+endif;
+add_filter( 'jetpack_images_get_images', 'ygaa_fallback_jetpack_post_image', 10, 3 );
